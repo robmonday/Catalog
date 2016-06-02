@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'user_table'
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False)
@@ -24,7 +24,7 @@ class Floorplan(Base):
     square_footage = Column(Integer, nullable=False)
     bedrooms = Column(Integer, nullable=False)
     bathrooms = Column(Integer, nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('user_table.id'))
     user = relationship(User)
     @property
     def serialize(self):
@@ -45,7 +45,7 @@ class Unit(Base):
     description = Column(String(300), default='No description provided...')
     floorplan_id = Column(Integer, ForeignKey('floorplan.id'))
     floorplan = relationship(Floorplan)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('user_table.id'))
     user = relationship(User)    
     @property
     def serialize(self):
