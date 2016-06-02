@@ -69,19 +69,19 @@ print "Floorplan data populated successfully!"
 # except:
 # 	print "JSON did not load"
 
-entry = Unit(name='Unit #1', floorplan_id=1, user_id=1)
+entry = Unit(name='Unit #1', floorplan_id=6, user_id=1)
 session.add(entry)
 session.commit()
 
-entry = Unit(name='Unit #2', floorplan_id=1, user_id=1)
+entry = Unit(name='Unit #2', floorplan_id=6, user_id=1)
 session.add(entry)
 session.commit()
 
-entry = Unit(name='Unit #3', floorplan_id=1, user_id=1)
+entry = Unit(name='Unit #3', floorplan_id=6, user_id=1)
 session.add(entry)
 session.commit()
 
-entry = Unit(name='Unit #4', floorplan_id=1, user_id=1)
+entry = Unit(name='Unit #4', floorplan_id=6, user_id=1)
 session.add(entry)
 session.commit()
 
