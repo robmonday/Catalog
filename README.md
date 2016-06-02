@@ -10,18 +10,15 @@ This assignement teaches how to access, secure, and perform the initial configur
 
 ##Required Components
 
-IP address: <a href="http://52.37.6.235">52.37.6.235</a><br>
+IP address: <a href="http://52.37.6.235" target="_blank">52.37.6.235</a><br>
 SSH port: 2200
-
-Complete URL to your hosted web application is...
-- Amazon EC2 Instance's public URL: http://... ...can use this url when configuring third party authentication. 
-- http://[ip]/index.html currently works too
+Public URL: <a href="http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com" target="_blank">http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com</a><br>
 
 ##Summary of Software Installed and Configuration Changes Made
 
 1. Created VM with Udacity account, SSH into server
 
-1. Created new user named grader ("sudo adduser grader") and gave permission to sudo ("/etc/sudoers.d", "touch grader", "touch nano", added "grader ALL=(ALL) NOPASSWD:ALL" code using editor)
+1. Created new user named grader ('sudo adduser grader') and gave permission to sudo ("/etc/sudoers.d", "touch grader", "touch nano", added "grader ALL=(ALL) NOPASSWD:ALL" code using editor)
 
 1. Updated all currently installed packages ("apt-get update", "apt-get upgrade")
 
