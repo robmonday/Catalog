@@ -16,32 +16,39 @@ Public URL: <a href="http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com" tar
 
 ##Summary of Software Installed and Configuration Changes Made
 
-1. Created VM with Udacity account, SSH into server
+1. Created VM with Udacity account, move private key into .ssh folder, set private key permissions to read/write for owner only, SSH into server (`mv ~/Downloads/udacity_key.rsa ~/.ssh`, `chmod 600 ~/.ssh/udacity_key.rsa`, `ssh -i ~/ssh/udacity_key.rsa root@52.37.6.235`)
 
-1. Created new user named grader (`sudo adduser grader`) and gave permission to sudo (`/etc/sudoers.d`, `touch grader`, `touch nano`, added `grader ALL=(ALL) NOPASSWD:ALL` code using editor)
+1. Created new user named grader (`sudo adduser grader`) and gave permission to sudo (`visudo`, added `grader ALL=(ALL:ALL) ALL` code using editor)
 
 1. Updated and upgraded the latest software packages (`apt-get update`, `apt-get upgrade`)
 
-1. Changed the SSH port from 22 to 2200 (`nano /etc/ssh/sshd_config`, changed port in code number using editor, `service ssh restart`, `exit`, `ssh -i ~/.ssh/udacity_key.rsa root@52.37.6.235 -p 2200`)
+1. Changed the SSH port from 22 to 2200, prevent login as root, allow password authentication, give grader access to login, access server using grader user (`nano /etc/ssh/sshd_config`, changed port to 2200 in code number using editor, `PermitRootLogin without-password`, `PasswordAuthentication yes`, added to end `UseDNS no` & `AllowUsers grader`, `service ssh restart`, `exit`, `ssh grader@52.37.6.235 -p 2200`)
 
-1. Configured Uncomplicated Firewall (UFW) to only allow specified incoming connections (`ufw default deny incoming`, `ufw default allow outgoing`, `ufw allow ssh`, `ufw allow http`, `ufw allow www`, `ufw allow ntp`, `ufw allow 2200`, `ufw allow ssh`, `ufw deny 22`, `ufw status` to check results)
 
-1. Configured the local timezone to UTC (`dpkg-reconfigure tzdata`, selected etc > /UTC using menu)
+1. Configured Uncomplicated Firewall (UFW) to only allow specified incoming connections (`sudo ufw status`, `sudo ufw default deny incoming`, `sudo ufw default allow outgoing`, `sudo ufw allow ssh`, `sudo ufw allow 2200`, `sudo ufw allow 80`, `sudo ufw allow 123`, `sudo ufw status` to check results, `sudo ufw enable`)
 
-1. Installed and configured Apache to serve a Python mod_wsgi application (`apt-get install apache2`, `apt-get install libapache2-mod-wsgi`).  Visted http://52.37.6.235/index.html to confirm install worked properly.
+1. Configured the local timezone to UTC (`sudo dpkg-reconfigure tzdata`, selected etc > /UTC using menu, `sudo apt-get install ntp`)
 
-1. Installed Flask (`cd /var/www`, `mkdir catalog-P3`, `cd catalog-P3`, `curl https://github.com/robmonday/catalog-P3.git`)
+1. Installed and configured Apache to serve a Python mod_wsgi application (`sudo apt-get install apache2`, check IP address to be sure 'it works' page is displaying, `sudo apt-get install python-setuptools`, `sudo apt-get install libapache2-mod-wsgi`)
+
+1. Installed Git (`sudo apt-get install git`, `git config --global user.name 'Rob Monday'`, `git config --global user.email 'rob.monday@gmail.com'`)
+
+1. Installed Flask (`sudo apt-get install libapache2-mod-wsgi`, `sudo apt-get install python-dev`, `sudo a2enmod wsgi`,
+
+1. Move Udacity Project 3 to Linux server and link files appropriately (rename `server.py` from Udacity project 3 to `__init__.py` on local machine, create new git repo locally `git init`, `git add *`, `git commit -m 'initial commit'`)
 
 1. Installed PostgreSQL, then created created and configured `catalog` user (`apt-get install postgresql postgresql-contrib`, `/etc/init.d/postgresql start`, `??`)
 
-1.  Imported former project 3 'Catalog' app, updated OAuth2, and linked separate files as appropriate (``)
-
 1.  Reconfigured database to work with PostgreSQL rather than SQLite (``)
 
-##List of any 3rd-Party Resources Used to Complete Project
+1.  Imported former project 3 'Catalog' app, updated OAuth2, and linked separate files as appropriate (``)
+
+
+##List of 3rd-Party Resources
+- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 - http://www.2daygeek.com/how-to-change-the-ssh-port-number/#
 - http://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt
-- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+
 - http://stackoverflow.com/questions/28253681/you-need-to-install-postgresql-server-dev-x-y-for-building-a-server-side-extensi
 
 ##Other Helpful Links
