@@ -58,6 +58,7 @@ Done!  Whew...this was a hard project.  But I learned a lot.
 - http://www.2daygeek.com/how-to-change-the-ssh-port-number/#
 - http://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt
 - http://stackoverflow.com/questions/28253681/you-need-to-install-postgresql-server-dev-x-y-for-building-a-server-side-extensi
+- https://github.com/elnobun/Linux-Server-Configuration
 - www.sqlalchemy.org
 - http://flask.pocoo.org
 - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
