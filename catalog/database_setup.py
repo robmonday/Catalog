@@ -17,7 +17,7 @@ class User(Base):
     picture = Column(String(200))
 
 class Floorplan(Base):
-    __tablename__ = 'floorplan'
+    __tablename__ = 'floorplan_table'
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     description = Column(String(300), default='No description provided...')
@@ -38,12 +38,12 @@ class Floorplan(Base):
         }
 
 class Unit(Base):
-    __tablename__ = 'unit'
+    __tablename__ = 'unit_table'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
     status = Column(String(20), default='Vacant', nullable=False)
     description = Column(String(300), default='No description provided...')
-    floorplan_id = Column(Integer, ForeignKey('floorplan.id'))
+    floorplan_id = Column(Integer, ForeignKey('floorplan_table.id'))
     floorplan = relationship(Floorplan)
     user_id = Column(Integer, ForeignKey('user_table.id'))
     user = relationship(User)    
