@@ -30,16 +30,13 @@ Public URL: <a href="http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com" tar
 
 1. Installed and configured Apache to serve a Python mod_wsgi application (`apt-get install apache2`, `apt-get install libapache2-mod-wsgi`).  Visted http://52.37.6.235/index.html to confirm install worked properly.
 
-1. Installed Flask (``)
+1. Installed Flask (`cd /var/www`, `mkdir catalog-P3`, `cd catalog-P3`, `curl https://github.com/robmonday/catalog-P3.git`)
 
 1. Installed PostgreSQL, then created created and configured `catalog` user (`apt-get install postgresql postgresql-contrib`, `/etc/init.d/postgresql start`, `??`)
 
 1.  Imported former project 3 'Catalog' app, updated OAuth2, and linked separate files as appropriate (``)
 
 1.  Reconfigured database to work with PostgreSQL rather than SQLite (``)
-
-- Installed and enabled mod_wsgi (`apt-get install libapache2-mod-wsgi python-dev`, `a2enmod wsgi`)
-- Implemented Flask app (`cd /var/www`, `mkdir catalog-P3`, `cd catalog-P3`, `curl https://github.com/robmonday/catalog-P3.git`)
 
 ##List of any 3rd-Party Resources Used to Complete Project
 - http://www.2daygeek.com/how-to-change-the-ssh-port-number/#
