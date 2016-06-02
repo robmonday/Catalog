@@ -10,7 +10,7 @@ This assignement teaches how to access, secure, and perform the initial configur
 
 ##Required Components
 
-IP address: <a src="http://52.37.6.235">52.37.6.235</a>
+IP address: <a href="http://52.37.6.235">52.37.6.235</a><br>
 SSH port: 2200
 
 Complete URL to your hosted web application is...
