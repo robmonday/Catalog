@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+
+{% block floorplan %}
+	<!-- Default is to show all floorplans.<br> -->
+
+	<a href="{{url_for('showAllInv')}}">Back</a>
+
+	{% for floorplan in floorplans %}
+	
+	<a href="#">
+	<div class="floorplan">
+		<strong>{{floorplan.name}}</strong><br>
+		<p>{{floorplan.bedrooms}} BR / {{floorplan.bathrooms}} BA
+		{{floorplan.square_footage}} SF</p>
+	</div>
+	</a>
+	{% endfor %}
+
+{% endblock %}

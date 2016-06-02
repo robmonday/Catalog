@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block entire_pane %}
+<block>
+<h3>Unit #{{unit.name}}</h3>
+<p><a href="{{url_for('showAllInv')}}">Cancel</a></p>
+</block>
+<div class="item-description">
+	<form action="{{url_for('editUnit', editedUnit = unit, floorplan_id=floorplan_id, unit_id=unit_id)}}" method='POST'>
+	<table>	
+		<tr>
+			<td>Floorplan</td>
+			<td>{{unit.floorplan.name}}</td>
+		</tr>
+		<tr>
+			<td>Bedrooms</td>
+			<td>{{unit.floorplan.bedrooms}}</td>
+		</tr>
+		<tr>
+			<td>Bathrooms</td>
+			<td>{{unit.floorplan.bathrooms}}</td>
+		</tr>
+		<tr>
+			<td>SF</td>
+			<td>{{unit.floorplan.square_footage}}</td>
+		</tr>	
+		<tr>
+			<td>Status</td>
+			<td><input id="input_field" name="Status" type="text" placeholder="{{unit.status}}"></input></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input id="input_field" name="Description" type="text" placeholder="{{unit.description}}"></input></td>
+		</tr>
+	</table>
+
+	<input type="Submit" value="Save Info">
+		
+	</form>
+
+
+</div>
+
+{% endblock %}
