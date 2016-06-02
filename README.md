@@ -39,11 +39,13 @@ Public URL: <a href="http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com" tar
 
 1. Create and enable host configuration (`sudo nano /etc/apache2/sites-available/catalog.conf`, type in code, `sudo a2ensite catalog.wsgi`, create `catalog.wsgi` in Catalog folder with appropriate import from `__init__.py`, `sudo service apache2 restart`)
 
-1.  Reconfigured database to work with PostgreSQL rather than SQLite (`sudo apt-get install postgresql postgresql-contrib`, `/var/www/Catalog/catalog$ sudo nano database_setup.py` then replace 'sqlite:///apartment-inventory.db'` with `'postgresql://catalog:robspassword@localhost/catalog'`)
+1.  Reconfigured database to work with PostgreSQL rather than SQLite (`sudo apt-get install postgresql postgresql-contrib`, `/var/www/Catalog/catalog$ sudo nano database_setup.py` then replace `'sqlite:///apartment-inventory.db'` with `'postgresql://catalog:robspassword@localhost/catalog'`)
 
-1. Installed PostgreSQL, then created created and configured `catalog` user (`apt-get install postgresql postgresql-contrib`, `/etc/init.d/postgresql start`, `??`)
+1. Installed PostgreSQL, then created created and configured `catalog` user (`apt-get install postgresql postgresql-contrib`, `/etc/init.d/postgresql start`, `sudo adduser catalog`, 
 
-1.  Imported former project 3 'Catalog' app, updated OAuth2, and linked separate files as appropriate (``)
+1. Set up database with SQL interpreter (`sudo su - postgres` then `psql` to enter interpreter, create a user `CREATE USER catalog WITH PASSWORD [my password];`, `ALTER USER catalog CREATEDB;`, `\c catalog`, `REVOKE ALL ON SCHEMA public FROM public;`, `GRANT ALL ON SCHEMA public TO catalog;`, `\q` to exit interpreter, `exit` to go back to grader user in Linux)
+
+1. Initialize Catalog database (`python database_setup.py`, `populate_data_linux.py`, then troubleshoot as needed, `sudo apache2ctl restart`, `sudo service apache2 restart`)
 
 
 ##List of Other 3rd-Party Resources
