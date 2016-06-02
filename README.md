@@ -1,10 +1,16 @@
 #Linux Server Configuration 
 
-This project is part of the Udacity Fullstack Nanodegree
+This assigned project is part of the Udacity Fullstack Nanodegree:
+
+##Project Overview
+
+Take a baseline installation of a Linux distribution on a virtual machine and prepare it to host web applications, including installing updates, securing from a number of attack vectors and installing/configuring web and database servers.
+
+This assignement teaches how to access, secure, and perform the initial configuration of a bare-bones Linux server. It also requires the studen to demonstrate knowledge about how to install and configure a web and database server and actually host a web application.
 
 ##Required Components
 
-IP address: 52.37.93.250 
+IP address: <a src="http://52.37.6.235">52.37.6.235</a>
 SSH port: 2200
 
 Complete URL to your hosted web application is...
