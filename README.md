@@ -46,7 +46,6 @@ Public URL: <a href="http://ec2-52-37-6-235.us-west-2.compute.amazonaws.com" tar
 
 - Installed and enabled mod_wsgi (`apt-get install libapache2-mod-wsgi python-dev`, `a2enmod wsgi`)
 - Implemented Flask app (`cd /var/www`, `mkdir catalog-P3`, `cd catalog-P3`, `curl https://github.com/robmonday/catalog-P3.git`)
-- 
 
 ##List of any 3rd-Party Resources Used to Complete Project
 - http://www.2daygeek.com/how-to-change-the-ssh-port-number/#
